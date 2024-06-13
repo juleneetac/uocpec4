@@ -17,3 +17,8 @@ python -m venv venvpec4
 ```shell
 venvpec4\Scripts\activate 
 ```
+
+**Instalar requirements**
+```shell
+pip install -r requirements.txt
+```
