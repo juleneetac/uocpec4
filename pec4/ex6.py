@@ -1,0 +1,1 @@
+# Ejercicio 6: Mapas coropléticos (1.5 puntos)

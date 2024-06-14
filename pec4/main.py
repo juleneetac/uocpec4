@@ -1,5 +1,6 @@
 from ex1 import *
 from ex2 import *
+from ex3 import *
 import argparse
 #Docu args: https://stackoverflow.com/questions/42818876/python-3-argparse-call-function
 # https://docs.python.org/3/library/argparse.html
@@ -10,6 +11,7 @@ import argparse
 path_firearm = "data/nics-firearm-background-checks.csv"
 path_population = "data/us-state-populations.csv"
 data_firearm = "temp_df_firearm.pkl"
+data_without_month = "temp_df_firearm_without_month.pkl"
 data_population = "temp_df_population.pkl"
 
 def main():
@@ -37,7 +39,16 @@ def main():
     print("\n=================")
     print("Ejercicio 2.2")
     print("=================")
-    df_without_motnh = erase_month(df_firearm)
+    df_without_month = erase_month(df_firearm)
+
+    print("\n=================")
+    print("Ejercicio 3.1")
+    print("=================")
+    df_grouped_state_year = groupby_state_and_year(df_without_month)
+
+    print("\n=================")
+    print("Ejercicio 3.2")
+    print("=================")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Ejecuta funciones de la PEC.')
@@ -56,6 +67,7 @@ if __name__ == "__main__":
         print("Ejercicio 1.1")
         print("=================")
         df_firearm = read_csv(path_firearm)
+        # Save pickle
         df_firearm.to_pickle(data_firearm)
 
         print("\n=================")
@@ -72,6 +84,7 @@ if __name__ == "__main__":
         print("\n=================")
         print("Ejercicio 2.1")
         print("=================")
+        # load pickle
         df_firearm_pkl = pd.read_pickle(data_firearm)
         df_year_month = breakdown_date(df_firearm_pkl)
 
@@ -79,6 +92,16 @@ if __name__ == "__main__":
         print("Ejercicio 2.2")
         print("=================")
         df_without_motnh = erase_month(df_year_month)
+        # save pickle
+        df_without_motnh.to_pickle(data_without_month)
+
+    elif args.f == 'ex3':
+        print("\n=================")
+        print("Ejercicio 3.1")
+        print("=================")
+        # load pickle
+        df_without_month_pkl = pd.read_pickle(data_without_month)
+        df_grouped_state_year = groupby_state_and_year(df_without_month_pkl)
 
 
 

@@ -15,7 +15,7 @@ def breakdown_date(df: pd.DataFrame) -> pd.DataFrame:
     """
 
     if "month" not in df.columns:
-        print("Error: La columna 'month' no existe")
+        raise ValueError("Error: La columna 'month' no existe")
     
     # División de la columna "month" en "year" y "month"
     df[["year", "month"]] = df["month"].str.split("-", expand=True)
@@ -51,6 +51,6 @@ def erase_month(df: pd.DataFrame) -> pd.DataFrame:
         print("Primeras cinco filas del DataFrame sin 'month':")
         print(df.head())
     else:
-        print("La columna 'month' no existe en el DataFrame.")
+        raise ValueError("La columna 'month' no existe en el DataFrame.")
     
     return df

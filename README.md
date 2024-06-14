@@ -7,6 +7,7 @@ Para la realización de esta práctiva se ha usado Visual Studio Code en mi máq
 # Preparación
 
 **Creación del entorno virtual**
+
 En la terminald el proyecto se deberá poner el siguiente comando:
 
 ```shell
