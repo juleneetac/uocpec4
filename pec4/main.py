@@ -18,6 +18,7 @@ data_longgun = "temp_df_longgun.pkl"
 data_without_month = "temp_df_firearm_without_month.pkl"
 data_state_year = "temp_df_state_year.pkl"
 data_population = "temp_df_population.pkl"
+data_ky_normalized = "temp_df_ky_normalized.pkl"
 
 def main():
 
@@ -91,11 +92,15 @@ def main():
     print("\n=================")
     print("Ejercicio 5.5")
     print("=================")
-    media_55(df_merged_perc)
+    df_ky_normalized = media_55(df_merged_perc)
 
     print("\n=================")
     print("Ejercicio 6")
     print("=================")
+    # se utliza el datframe con el valor de permit_perc de Kentucky modificado
+    print_map(df_ky_normalized, "permit_perc")
+    print_map(df_ky_normalized, "longgun_perc")
+    print_map(df_ky_normalized, "handgun_perc")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Ejecuta funciones de la PEC.')
@@ -198,19 +203,20 @@ if __name__ == "__main__":
         print("\n=================")
         print("Ejercicio 5.5")
         print("=================")
-        media_55(df_merged_perc)
+        df_ky_normalized = media_55(df_merged_perc)
+        # save pickle
+        df_ky_normalized.to_pickle(data_ky_normalized)
 
     elif args.f == 'ex6':
         print("\n=================")
         print("Ejercicio 6")
         print("=================")
-        print_map()
+        # load pickle
+        df_ky_normalized_pkl = pd.read_pickle(data_ky_normalized)
+        # se utliza el datframe con el valor de permit_perc de Kentucky modificado
+        print_map(df_ky_normalized_pkl, "permit_perc")
+        print_map(df_ky_normalized_pkl, "longgun_perc")
+        print_map(df_ky_normalized_pkl, "handgun_perc")
 
-
-
-    # elif args.f == 'clean_csv':
-    #     df_firearm = read_csv(path_firearm, False)
-    #     print("Ejercicio 1.2")
-    #     df_cleaned = clean_csv(df_firearm)
     else:
         print(f"Función '{args.f}' no reconocida.")

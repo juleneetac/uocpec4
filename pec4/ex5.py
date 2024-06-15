@@ -111,7 +111,7 @@ def calculate_relative_values(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 # Ejercicio 5.5 (0.25 puntos)
-def media_55(df: pd.DataFrame) -> None:
+def media_55(df: pd.DataFrame) -> pd.DataFrame:
     # 1. Se calcula la media de permit_perc
     print("\n|||| 5.5.1 ||||")
     mean_permit_perc = df['permit_perc'].mean()
@@ -131,6 +131,10 @@ def media_55(df: pd.DataFrame) -> None:
     print("Información de Kentucky actualizada:")
     print(ky_info_updated)
 
+    uh_info_updated = df[df['state'] == 'Utah']
+    print("Información de Utah actualizada:")
+    print(uh_info_updated)
+
 
     print("\n|||| 5.5.4 ||||")
     # Se vuelve a calcular la media con dos decimales
@@ -148,3 +152,5 @@ def media_55(df: pd.DataFrame) -> None:
     text += "a los algoritmos de ML a conclusiones inexactas y/o erróneas."
 
     print(text)
+
+    return df
