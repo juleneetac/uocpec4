@@ -36,8 +36,7 @@ def erase_month(df: pd.DataFrame) -> pd.DataFrame:
     """
     Elimina la columna "month" y muestra las cinco primeras filas y el nombre
     de todas sus columnas.
-    Returns:
-    
+   
     Args:
         df (pd.DataFrame): Dataframe que contenie la columna "month".
 

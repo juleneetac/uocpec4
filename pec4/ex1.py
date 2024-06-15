@@ -67,7 +67,7 @@ def rename_col(df):
     # Verificar si la columna 'longgun' existe en el DataFrame
     if 'long_gun' in df.columns:
         df_column_changed = df.rename(columns={'long_gun': 'longgun'})
-        print("Nombre de la columna modificado")
+        print("Nombre de la columna long_gun modificado a longgun")
     else:
         raise ValueError("Error: La columna 'long_gun' no existe en el DataFrame.")
     
