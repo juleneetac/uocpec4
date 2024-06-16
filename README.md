@@ -42,7 +42,7 @@ python pec4/main.py --f all
 Para este caso, se podrá ejecutar cada ejercicio individualmente añadiendo un argumento, pero en muchos casos será necesario ejecutar
 el ejercicio anterior para un funcionamiento correcto, puesto que hay dependencias de ejercicios anteriores.
 
-| Ejercicio | argumento |
+| Ejercicio | Argumento |
 | ------ | ------ |
 | ejercicio 1 | --f ex1 |
 | ejercicio 2 | --f ex2 |
@@ -51,15 +51,16 @@ el ejercicio anterior para un funcionamiento correcto, puesto que hay dependenci
 | ejercicio 5 | --f ex5 |
 | ejercicio 6 | --f ex6 |
 
-ejemplo:
+Ejemplo:
 
 ```shell
 python pec4/main.py --f ex6
 ```
 
-**Nota:** Es importante usar "python" y  o "python3" ya que sinó la librería folium no funcionará.
+**Nota:** Es importante usar "python" y no "python3" ya que sinó la librería folium no funcionará.
 
-**Ver los mapas interactivos en html**
+# Ver los mapas interactivos en html
+
 Para ver los mapas generados en el ejercicio 6 de forma interactiva, se aconseja visitar
 la web [HTML Online Editor](https://onecompiler.com/html/) y pegar el código html guardado en 
 la carpeta data.
