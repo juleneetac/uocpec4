@@ -3,7 +3,7 @@ import pandas as pd
 # Ejercicio 3: Agrupamiento de datos (1 punto)
 
 # Ejercicio 3.1 (0.5 puntos)
-def groupby_state_and_year(df: pd.DataFrame) -> pd.DataFrame:
+def groupby_state_and_year(df: pd.DataFrame, print_or_not: bool=True) -> pd.DataFrame:
     """
     La función calculaa los valores acumulados totales ("totals") agrupando los datos por año y por estado: (columnas year y state).
     
@@ -20,9 +20,10 @@ def groupby_state_and_year(df: pd.DataFrame) -> pd.DataFrame:
     # Agrupar por "year" y "state" y calcular los valores acumulados de la columna "totals"
     df_grouped = df.groupby(['year', 'state']).sum().reset_index()
     
-    print("Primeras cinco filas del DataFrame agrupado por 'year' y 'state':")
-    print(df_grouped.head(5))
-    
+    if print_or_not:
+        print("Primeras cinco filas del DataFrame agrupado por 'year' y 'state':")
+        print(df_grouped.head(5))
+        
     return df_grouped
 
 # Ejercicio 3.2 (0.25 puntos)

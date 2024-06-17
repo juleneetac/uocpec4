@@ -64,3 +64,17 @@ python pec4/main.py --f ex6
 Para ver los mapas generados en el ejercicio 6 de forma interactiva, se aconseja visitar
 la web [HTML Online Editor](https://onecompiler.com/html/) y pegar el código html guardado en 
 la carpeta data.
+
+# Run Tests
+
+**Run tests**
+En el directorio raiz del proyecto se debe ejecutar:
+```shell
+python pec4/main.py --f ex6
+```
+
+o
+
+```shell
+python -m unittest discover -s tests
+```

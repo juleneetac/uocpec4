@@ -4,13 +4,23 @@ from ex3 import *
 from ex4 import *
 from ex5 import *
 from ex6 import *
-import argparse
-#Docu args: https://stackoverflow.com/questions/42818876/python-3-argparse-call-function
-# https://docs.python.org/3/library/argparse.html
-#Docu pickle(save dataframe): https://www.statology.org/pandas-save-dataframe/
 
-# python3 main.py --func read_csv  --> para escoger el nombre de la función que se quiere runnear
-# python3 main.py  --> hará run de todas las funciones
+import argparse
+import unittest
+import sys
+import os
+
+# Documentation use args: 
+# https://stackoverflow.com/questions/42818876/python-3-argparse-call-function
+# https://docs.python.org/3/library/argparse.html
+
+# Documentation pickle(save dataframe): 
+# https://www.statology.org/pandas-save-dataframe/
+
+# Documentation run tests: 
+# https://stackoverflow.com/questions/1896918/running-unittest-with-typical-test-directory-structure
+
+
 path_firearm = "data/nics-firearm-background-checks.csv"
 path_population = "data/us-state-populations.csv"
 data_firearm = "temp_df_firearm.pkl"
@@ -19,6 +29,21 @@ data_without_month = "temp_df_firearm_without_month.pkl"
 data_state_year = "temp_df_state_year.pkl"
 data_population = "temp_df_population.pkl"
 data_ky_normalized = "temp_df_ky_normalized.pkl"
+
+def run_tests():
+    # Añadir el directorio raíz del proyecto al PYTHONPATH
+    root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    sys.path.insert(0, root_path)
+
+    # Se cargan y se ejecutan los tests
+    test_loader = unittest.TestLoader()
+    test_suite = test_loader.discover(start_dir="./tests", pattern='test_*.py')
+    test_runner = unittest.TextTestRunner(verbosity=2)
+    result = test_runner.run(test_suite)
+
+    # Si hay fallos, salir con código de error
+    if not result.wasSuccessful():
+        sys.exit(1)
 
 def main():
 
@@ -40,7 +65,7 @@ def main():
     print("\n=================")
     print("Ejercicio 2.1")
     print("=================")
-    df_year_month=breakdown_date(df_column_loggun)
+    df_year_month = breakdown_date(df_column_loggun)
 
     print("\n=================")
     print("Ejercicio 2.2")
@@ -94,13 +119,13 @@ def main():
     print("=================")
     df_ky_normalized = media_55(df_merged_perc)
 
-    print("\n=================")
-    print("Ejercicio 6")
-    print("=================")
-    # se utliza el datframe con el valor de permit_perc de Kentucky modificado
-    print_map(df_ky_normalized, "permit_perc")
-    print_map(df_ky_normalized, "longgun_perc")
-    print_map(df_ky_normalized, "handgun_perc")
+    # print("\n=================")
+    # print("Ejercicio 6")
+    # print("=================")
+    # # se utliza el datframe con el valor de permit_perc de Kentucky modificado
+    # print_map(df_ky_normalized, "permit_perc")
+    # print_map(df_ky_normalized, "longgun_perc")
+    # print_map(df_ky_normalized, "handgun_perc")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Ejecuta funciones de la PEC.')
@@ -114,6 +139,13 @@ if __name__ == "__main__":
     # Ejecutar funciones basadas en los argumentos
     if args.f == 'all':
         main()
+
+    elif args.f == 'test':
+        print("\n/////////////////")
+        print("Tests")
+        print("/////////////////")
+        run_tests()
+
     elif args.f == 'ex1':
         print("\n=================")
         print("Ejercicio 1.1")
@@ -131,6 +163,7 @@ if __name__ == "__main__":
         df_column_loggun = rename_col(df_cleaned)
         # Save pickle
         df_column_loggun.to_pickle(data_longgun)
+
 
     elif args.f == 'ex2':
         print("\n=================")

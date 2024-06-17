@@ -3,7 +3,7 @@ import pandas as pd
 # Ejercicio 2: Procesamiento de datos (1 punto)
 
 # Ejercicio 2.1 (0.5 puntos)
-def breakdown_date(df: pd.DataFrame) -> pd.DataFrame: 
+def breakdown_date(df: pd.DataFrame, print_or_not: bool=True) -> pd.DataFrame: 
     """
     La función divide la información que hay en la columna month creando dos nuevas columnas en el dataframe ""year" y "month".
     
@@ -25,8 +25,9 @@ def breakdown_date(df: pd.DataFrame) -> pd.DataFrame:
     df["month"] = df["month"].astype(int)
     
 
-    print("Primeras cinco filas del DataFrame tras la separación de columnas:")
-    print(df.head(5))
+    if print_or_not:
+        print("Primeras cinco filas del DataFrame tras la separación de columnas:")
+        print(df.head(5))
     
     # Devolver el DataFrame con las columnas "year" y "month" añadidas
     return df
