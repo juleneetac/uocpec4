@@ -70,7 +70,7 @@ la carpeta data.
 **Run tests**
 En el directorio raiz del proyecto se debe ejecutar:
 ```shell
-python pec4/main.py --f ex6
+python pec4/main.py --f test
 ```
 
 o
