@@ -69,6 +69,7 @@ la carpeta data.
 
 **Run tests**
 En el directorio raiz del proyecto se debe ejecutar:
+
 ```shell
 python pec4/main.py --f test
 ```
@@ -77,4 +78,29 @@ o
 
 ```shell
 python -m unittest discover -s tests
+```
+
+# setup.py
+
+**Check de que funciona**
+```shell
+python setup.py check
+```
+
+En caso de que de error de setuptools, se debe hacer upgrade:
+
+```shell
+pip install --upgrade setuptools
+```
+
+**Instalar wheel**
+
+```shell
+pip install wheel
+```
+
+**Crear un paquete distribuible**
+
+```shell
+python setup.py sdist bdist_wheel
 ```
