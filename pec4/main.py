@@ -119,13 +119,13 @@ def main():
     print("=================")
     df_ky_normalized = media_55(df_merged_perc)
 
-    # print("\n=================")
-    # print("Ejercicio 6")
-    # print("=================")
-    # # se utliza el datframe con el valor de permit_perc de Kentucky modificado
-    # print_map(df_ky_normalized, "permit_perc")
-    # print_map(df_ky_normalized, "longgun_perc")
-    # print_map(df_ky_normalized, "handgun_perc")
+    print("\n=================")
+    print("Ejercicio 6")
+    print("=================")
+    # se utliza el datframe con el valor de permit_perc de Kentucky modificado
+    print_map(df_ky_normalized, "permit_perc")
+    print_map(df_ky_normalized, "longgun_perc")
+    print_map(df_ky_normalized, "handgun_perc")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Ejecuta funciones de la PEC.')
